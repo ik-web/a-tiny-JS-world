@@ -3,29 +3,63 @@
 
    Code repository: _put repo URL here_
    Web app: _put project's github pages URL here_
-   */
+
+*/
 
 // ======== OBJECTS DEFINITIONS ========
-// Define your objects here
+let catSaying = 'meow';
+const dog = {
+   species: 'dog',
+   name: 'Bobik',
+   gender: 'male',
+   legs: 4,
+   hands: 0,
+   saying: 'woof-woof!'
+ };
 
+const cat = {
+   species: 'cat',
+   name: 'Barsik',
+   gender: 'male',
+   legs: 4,
+   hands: 0,
+   saying: catSaying
+};
+
+const man = {
+   species: 'human',
+   name: 'Benjamin',
+   gender: 'male',
+   legs: 2,
+   hands: 2,
+   saying: 'Hi to all!'
+};
+
+const woman = {
+   species: 'human',
+   name: 'Sarah',
+   gender: 'female',
+   legs: 2,
+   hands: 2,
+   saying: 'Hello everyone!'
+};
+
+const catWoman = {
+   species: 'mystery of nature',
+   name: 'anonymous',
+   gender: 'female',
+   legs: 2,
+   hands: 2,
+   saying: catSaying
+};
 
 // ======== OUTPUT ========
-/* Use print(message) for output.
-   Default tag for message is <pre>. Use print(message,'div') to change containing element tag.
+const tinyJsWorldPopulation = [dog, cat, man, woman, catWoman];
 
-   Message can contain HTML markup. You may also tweak index.html and/or styles.css.
-   However, please, REFRAIN from improving visuals at least until your code is reviewed
-   so code reviewers might focus on a single file that is index.js.
-   */
+function toPrint(arr) {
+   arr.forEach( function(obj) {
+      print(`A ${obj.species} (<i>${obj.gender}<i>) named <strong>${obj.name}</strong> has ${obj.legs} legs and ${obj.hands} hands, likes to say <u>${obj.saying}</u>`);
+   });
+}
 
-/* Print examples:
-   print('ABC');
-   print('<strong>ABC</strong>');
-   print('<strong>ABC</strong>', 'div');
-
-   print('human; John; male; 2; 2; Hello world!; Rex, Tom, Jenny');
-   print('human; <strong>John</strong>; male; 2; 2; <em>Hello world!</em>; Rex, Tom, Jenny');
-   print('human; <strong>John</strong>; male; 2; 2; <em>Hello world!</em>; Rex, Tom, Jenny', 'div');
-   */
-
-
+toPrint(tinyJsWorldPopulation);
