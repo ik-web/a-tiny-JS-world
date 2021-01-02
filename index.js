@@ -16,12 +16,8 @@ class Inhabitant {
       this.saying = saying;
    }
 
-   getInfoToArr() {
-      return [`A ${this.species}`, `(<i>${this.gender}<i>)`, `named <strong>${this.name}</strong>`, `has ${this.legs} legs`, `likes to say <u>${this.saying}</u>`];
-   }
-
-   toString() {
-      return this.getInfoToArr().join(' ');
+   toPrint() {
+      return `A ${this.species} (<i>${this.gender}<i>) named <strong>${this.name}</strong> has ${this.legs} legs likes to say <u>${this.saying}</u>`;
    }
 }
 
@@ -46,11 +42,20 @@ class Human extends Inhabitant {
       super('human', name, gender, 2, saying);
       this.hands = hands;
    }
+
+   toPrint() {
+      return `A ${this.species} (<i>${this.gender}<i>) named <strong>${this.name}</strong> has ${this.legs} legs and ${this.hands} hands likes to say <u>${this.saying}</u>`;
+   }
 }
 
 class CatWoman extends Inhabitant {
-   constructor(name, saying) {
-      super('mystery of nature', name, 'female', 2, 2, saying);
+   constructor(name, hands, saying) {
+      super('mystery of nature', name, 'female', 2, saying);
+      this.hands = hands;
+   }
+
+   toPrint() {
+      return `A ${this.species} (<i>${this.gender}<i>) named <strong>${this.name}</strong> has ${this.legs} legs and ${this.hands} hands likes to say <u>${this.saying}</u>`;
    }
 }
 
@@ -58,9 +63,9 @@ const dog = new Dog('Bobik', 'male');
 const cat = new Cat('Barsik', 'male');
 const man = new Human('Benjamin', 'male', 2, 'Hi to all!');
 const woman = new Human('Sarah', 'female', 2, 'Hello everyone!');
-const catWoman = new CatWoman('anonymos', cat.getSaying());
+const catWoman = new CatWoman('anonymos', 2, cat.getSaying());
 const tinyJsWorldPopulation = [dog, cat, man, woman, catWoman];
 
-tinyJsWorldPopulation.forEach(function(item) {
-   print(item);
+tinyJsWorldPopulation.forEach(function(obj) {
+   print(obj.toPrint());
 });
