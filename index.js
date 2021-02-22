@@ -29,11 +29,11 @@ class Dog extends Inhabitant {
 
 class Cat extends Inhabitant {
    constructor(name, gender) {
-      super('cat', name, gender, 4, 'meow');
+      super('cat', name, gender, 4, Cat.getSaying());
    }
 
-   getSaying() {
-      return this.saying;
+   static getSaying() {
+      return 'meow';
    }
 }
 
@@ -59,7 +59,7 @@ const dog = new Dog('Bobik', 'male');
 const cat = new Cat('Barsik', 'male');
 const man = new Human('Benjamin', 'male', 2, 'Hi to all!');
 const woman = new Human('Sarah', 'female', 2, 'Hello everyone!');
-const catWoman = new CatWoman('anonymos', cat.getSaying());
+const catWoman = new CatWoman('anonymos', Cat.getSaying());
 const inhabitants = [dog, cat, man, woman, catWoman];
 
 inhabitants.forEach(inhabitant => print(inhabitant.showInhabitantInfo()));
